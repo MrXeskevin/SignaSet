@@ -53,3 +53,9 @@ export function getImageUrl(imageUrl) {
 export function getExportUrl() {
     return `${API_BASE}/export`;
 }
+
+export async function getLandmarksOnly() {
+    const res = await fetch(`${API_BASE}/gestures/landmarks-only`);
+    if (!res.ok) throw new Error('Failed to fetch landmarks');
+    return res.json();
+}

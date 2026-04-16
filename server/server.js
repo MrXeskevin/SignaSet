@@ -155,6 +155,21 @@ app.get('/api/gestures', (req, res) => {
     }
 });
 
+// Get landmarks only for classifier seeding
+app.get('/api/gestures/landmarks-only', (req, res) => {
+    try {
+        const gestures = db.prepare('SELECT label, landmarks FROM gestures WHERE landmarks IS NOT NULL').all();
+        const parsed = gestures.map(g => ({
+            label: g.label,
+            landmarks: JSON.parse(g.landmarks)
+        }));
+        res.json(parsed);
+    } catch (err) {
+        console.error('Error fetching landmarks-only:', err);
+        res.status(500).json({ error: 'Failed to fetch landmarks' });
+    }
+});
+
 // Get a single gesture
 app.get('/api/gestures/:id', (req, res) => {
     try {

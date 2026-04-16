@@ -5,6 +5,7 @@ import HomePage from './components/HomePage'
 import CameraCapture from './components/CameraCapture'
 import ImageUpload from './components/ImageUpload'
 import DatasetPreview from './components/DatasetPreview'
+import RecognizeMode from './components/RecognizeMode'
 import Toast from './components/Toast'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/capture" element={<CameraCapture addToast={addToast} />} />
           <Route path="/upload" element={<ImageUpload addToast={addToast} />} />
           <Route path="/dataset" element={<DatasetPreview addToast={addToast} />} />
+          <Route path="/recognize" element={<RecognizeMode addToast={addToast} />} />
         </Routes>
       </main>
       <footer className="footer">

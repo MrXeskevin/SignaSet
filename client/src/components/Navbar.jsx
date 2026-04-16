@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Home, Camera, Upload, Database, Hand } from 'lucide-react'
+import { Home, Camera, Upload, Database, Hand, Scan } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 export default function Navbar() {
@@ -17,6 +17,7 @@ export default function Navbar() {
         { to: '/capture', label: 'Capture', icon: <Camera size={16} /> },
         { to: '/upload', label: 'Upload', icon: <Upload size={16} /> },
         { to: '/dataset', label: 'Dataset', icon: <Database size={16} /> },
+        { to: '/recognize', label: 'Recognize', icon: <Scan size={16} /> },
     ]
 
     return (
